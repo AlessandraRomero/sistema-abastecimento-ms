@@ -2,6 +2,7 @@ package com.ifms.backend.dto;
 
 import java.io.Serializable;
 
+import com.ifms.backend.entities.Marca;
 import com.ifms.backend.entities.Modelo;
 
 public class ModeloDto implements Serializable {
@@ -9,13 +10,15 @@ public class ModeloDto implements Serializable {
 
 	private Long id;
 	private String descricao;
+	private Marca marca;
 
 	public ModeloDto() {
 	}
 
-	public ModeloDto(Long id, String descricao) {
+	public ModeloDto(Long id, String descricao, Marca marca) {
 		this.id = id;
 		this.descricao = descricao;
+		this.marca = marca;
 	}
 
 	public ModeloDto(Modelo entity) {
@@ -38,5 +41,15 @@ public class ModeloDto implements Serializable {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
+
+	public Marca getMarca() {
+		return marca;
+	}
+
+	public void setMarca(Marca marca) {
+		this.marca = marca;
+	}
+
+	
 
 }

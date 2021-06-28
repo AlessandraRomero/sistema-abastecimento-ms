@@ -61,6 +61,14 @@ public class Modelo implements Serializable {
 		return marca;
 	}
 
+	public void setVeiculo(List<Veiculo> veiculo) {
+		this.veiculo = veiculo;
+	}
+
+	public void setMarca(Marca marca) {
+		this.marca = marca;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -86,4 +94,5 @@ public class Modelo implements Serializable {
 		return true;
 	}
 
+	
 }

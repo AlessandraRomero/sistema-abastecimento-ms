@@ -2,11 +2,13 @@ package com.ifms.backend.dto;
 
 import java.io.Serializable;
 
+
 import com.ifms.backend.entities.AutoPosto;
 
 public class AutoPostoDto implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
+	private Long id;
 	private String nomeFantasia;
 	private String telefone;
 	private String email;
@@ -17,7 +19,8 @@ public class AutoPostoDto implements Serializable{
 		
 	}
 
-	public AutoPostoDto(String nomeFantasia, String telefone, String email, String cnpj, String endereco) {
+	public AutoPostoDto(Long id, String nomeFantasia, String telefone, String email, String cnpj, String endereco) {
+		this.id = id;
 		this.nomeFantasia = nomeFantasia;
 		this.telefone = telefone;
 		this.email = email;
@@ -31,6 +34,16 @@ public class AutoPostoDto implements Serializable{
 		this.email = entity.getEmail();
 		this.cnpj = entity.getCnpj();
 		this.endereco = entity.getEndereco();
+	}
+	
+	
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getNomeFantasia() {
@@ -72,6 +85,7 @@ public class AutoPostoDto implements Serializable{
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
-	
+
+
 	
 }
