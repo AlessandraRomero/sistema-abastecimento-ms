@@ -3,6 +3,10 @@ package com.ifms.backend.dto;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.validation.constraints.NotBlank;
+
+import org.hibernate.validator.constraints.br.CPF;
+
 import com.ifms.backend.entities.Abastecimento;
 import com.ifms.backend.entities.Combustivel;
 
@@ -10,11 +14,17 @@ public class AbastecimentoDto implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	private Long id;
+	@CPF
 	private String cpfMotorista;
+	@NotBlank(message = "O campo é obrigatório")
 	private Date dataDoAbastecimento;
+	@NotBlank(message = "O campo é obrigatório")
 	private String quilometragem;
+	@NotBlank(message = "O campo é obrigatório")
 	private Combustivel combustivel;
+	@NotBlank(message = "O campo é obrigatório")
 	private Integer quantidadeEmLitros;
+	@NotBlank(message = "O campo é obrigatório")
 	private Double valorPorLitro;
 	
 	

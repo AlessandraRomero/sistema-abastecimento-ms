@@ -15,45 +15,44 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.ifms.backend.dto.AbastecimentoDto;
-import com.ifms.backend.services.AbastecimentoService;
+import com.ifms.backend.dto.ModeloDto;
+import com.ifms.backend.services.ModeloService;
 
 @RestController
-@RequestMapping(value = "/Abastecimento")
-public class AbastecimentoResource {
+@RequestMapping(value = "/Modelo")
+public class ModeloResource {
 
 	@Autowired
-	private AbastecimentoService service;
+	private ModeloService service;
 
-	public ResponseEntity<List<AbastecimentoDto>> findAll() {
-		List<AbastecimentoDto> lista = service.findAll();
+	public ResponseEntity<List<ModeloDto>> findAll() {
+		List<ModeloDto> lista = service.findAll();
 		return ResponseEntity.ok().body(lista);
 	}
 
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<AbastecimentoDto> findById(@PathVariable Long id) {
-		AbastecimentoDto dto = service.findById(id);
+	public ResponseEntity<ModeloDto> findById(@PathVariable Long id) {
+		ModeloDto dto = service.findById(id);
 		return ResponseEntity.ok().body(dto);
 	}
 
 	@PostMapping
-	public ResponseEntity<AbastecimentoDto> insert(@RequestBody AbastecimentoDto dto) {
+	public ResponseEntity<ModeloDto> insert(@RequestBody ModeloDto dto) {
 		dto = service.insert(dto);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.getId()).toUri();
 		return ResponseEntity.created(uri).body(dto);
 	}
 
-	@PutMapping (value = "/{id}")
-	public ResponseEntity<AbastecimentoDto> update(@PathVariable Long id, @RequestBody AbastecimentoDto dto) {
+	@PutMapping(value = "/{id}")
+	public ResponseEntity<ModeloDto> update(@PathVariable Long id, @RequestBody ModeloDto dto) {
 		dto = service.update(id, dto);
 		return ResponseEntity.ok().body(dto);
 	}
 
 	@DeleteMapping(value = "/{id}")
-	public ResponseEntity<AbastecimentoDto> delete(@PathVariable Long id) {
+	public ResponseEntity<ModeloDto> delete(@PathVariable Long id) {
 		service.delete(id);
 		return ResponseEntity.noContent().build();
 
 	}
-
 }

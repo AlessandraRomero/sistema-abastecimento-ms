@@ -3,6 +3,8 @@ package com.ifms.backend.resources;
 import java.net.URI;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -37,7 +39,7 @@ public class AutoPostoResource {
 	}
 	
 	@PostMapping
-	public ResponseEntity<AutoPostoDto> insert(@RequestBody AutoPostoDto dto) {
+	public ResponseEntity<AutoPostoDto> insert(@Valid @RequestBody AutoPostoDto dto) {
 		dto = service.insert(dto);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.getId()).toUri();
 		return ResponseEntity.created(uri).body(dto);

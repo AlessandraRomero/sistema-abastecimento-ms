@@ -2,6 +2,8 @@ package com.ifms.backend.dto;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.NotBlank;
+
 import com.ifms.backend.entities.Marca;
 import com.ifms.backend.entities.Modelo;
 
@@ -9,7 +11,9 @@ public class ModeloDto implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Long id;
+	@NotBlank(message = "O campo é obrigatório")
 	private String descricao;
+	@NotBlank(message = "O campo é obrigatório")
 	private Marca marca;
 
 	public ModeloDto() {

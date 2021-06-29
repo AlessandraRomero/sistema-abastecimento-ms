@@ -2,6 +2,8 @@ package com.ifms.backend.dto;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.NotBlank;
+
 import com.ifms.backend.entities.Cidade;
 import com.ifms.backend.entities.Estado;
 
@@ -9,7 +11,9 @@ public class CidadeDto implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Long id;
+	@NotBlank(message = "O campo é obrigatório")
 	private String nome;
+	@NotBlank(message = "O campo é obrigatório")
 	private Estado estado;
 
 	public CidadeDto() {

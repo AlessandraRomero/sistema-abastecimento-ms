@@ -23,6 +23,7 @@ public class AutoPosto implements Serializable{
 	private String email;
 	private String cnpj;
 	private String endereco;
+
 	
 	@OneToMany(mappedBy = "autoposto")
 	private List<Abastecimento> abastecimento;
@@ -35,7 +36,7 @@ public class AutoPosto implements Serializable{
 
 	}
 
-	public AutoPosto(Long id, String nomeFantasia, String telefone, String email, String cnpj, String endereco) {
+	public AutoPosto(Long id, String nomeFantasia, String telefone, String email, String cnpj, String endereco, Cidade cidade) {
 		super();
 		this.id = id;
 		this.nomeFantasia = nomeFantasia;
@@ -93,6 +94,24 @@ public class AutoPosto implements Serializable{
 		this.endereco = endereco;
 	}
 
+	
+	public List<Abastecimento> getAbastecimento() {
+		return abastecimento;
+	}
+
+	public void setAbastecimento(List<Abastecimento> abastecimento) {
+		this.abastecimento = abastecimento;
+	}
+
+	public void setCidade(Cidade cidade) {
+		this.cidade = cidade;
+	}
+	
+
+	public Cidade getCidade() {
+		return cidade;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -117,5 +136,10 @@ public class AutoPosto implements Serializable{
 			return false;
 		return true;
 	}
+
+	
+
+	
+	
 
 }

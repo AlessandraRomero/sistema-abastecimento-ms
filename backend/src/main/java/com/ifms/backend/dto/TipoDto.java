@@ -2,12 +2,15 @@ package com.ifms.backend.dto;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.NotBlank;
+
 import com.ifms.backend.entities.Tipo;
 
 public class TipoDto implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Long id;
+	@NotBlank(message = "O campo é obrigatório")
 	private String descricao;
 
 	public TipoDto() {
